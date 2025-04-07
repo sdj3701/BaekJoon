@@ -8,10 +8,126 @@
 #include <set>
 #include <stack>
 #include <queue>
+#include <deque>
 
 using namespace std;
 
 void baekjoon()
+{
+
+}
+
+
+int main() 
+{
+    baekjoon();
+    return 0;
+}
+
+#pragma region 주의점
+// 수백개 On2			2중for문
+// 수만개 ONlogN
+// 수백만 이상 OlogN		이분 탐색
+
+// endl 보다 \n을 사용하자
+
+
+#pragma endregion
+
+void baekjoon28279()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	int n;
+	cin >> n;
+
+	deque<int> d;
+
+	for (int i = 0; i < n; i++)
+	{
+		int x;
+		cin >> x;
+
+		if (x == 1)
+		{
+			int front;
+			cin >> front;
+			d.push_front(front);
+		}
+		else if (x == 2)
+		{
+			int back;
+			cin >> back;
+			d.push_back(back);
+		}
+		else if (x == 3)
+		{
+			if (!d.empty())
+			{
+				cout << d.front() << "\n";
+				d.pop_front();
+			}
+			else
+			{
+				cout << "-1\n";
+			}
+		}
+		else if (x == 4)
+		{
+			if (!d.empty())
+			{
+				cout << d.back() << "\n";
+				d.pop_back();
+			}
+			else
+			{
+				cout << "-1\n";
+			}
+		}
+		else if (x == 5)
+		{
+			cout << d.size() << "\n";
+		}
+		else if (x == 6)
+		{
+			if (d.empty())
+			{
+				cout << "1\n";
+			}
+			else
+			{
+				cout << "0\n";
+			}
+		}
+		else if (x == 7)
+		{
+			if (!d.empty())
+			{
+				cout << d.front() << "\n";
+			}
+			else
+			{
+				cout << "-1\n";
+			}
+		}
+		else if (x == 8)
+		{
+			if (!d.empty())
+			{
+				cout << d.back() << "\n";
+			}
+			else
+			{
+				cout << "-1\n";
+			}
+		}
+	}
+
+}
+
+void baekjoon28279()
 {
 	int n, k;
 	cin >> n >> k;
@@ -34,22 +150,6 @@ void baekjoon()
 	}
 	cout << ">";
 }
-
-int main() 
-{
-    baekjoon();
-    return 0;
-}
-
-#pragma region 주의점
-// 수백개 On2			2중for문
-// 수만개 ONlogN
-// 수백만 이상 OlogN		이분 탐색
-
-// endl 보다 \n을 사용하자
-
-
-#pragma endregion
 
 void baekjoon2164()
 {
