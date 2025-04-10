@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\CodingTest\CodingTestExample\CodingTest\x64\Debug\CodingTestExample.exe</FullPath>
+      <FullPath>D:\BaekJoon\CodingTest\x64\Debug\CodingTestExample.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

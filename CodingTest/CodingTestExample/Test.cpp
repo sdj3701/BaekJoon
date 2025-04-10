@@ -12,7 +12,72 @@
 
 using namespace std;
 
+
+long recursion(long n)
+{
+	if (n == 0)
+		return 1;
+	else
+		return n * recursion(n - 1);
+}
+
 void baekjoon()
+{
+	int n;
+	cin >> n;
+
+	cout  << recursion(n);
+}
+
+
+int main() 
+{
+    baekjoon();
+    return 0;
+}
+
+#pragma region 주의점
+// 수백개 On2			2중for문
+// 수만개 ONlogN
+// 수백만 이상 OlogN		이분 탐색
+
+// endl 보다 \n을 사용하자
+
+
+#pragma endregion
+
+void baekjoon24511()
+{
+	deque<int> dq;
+	int n, m;
+	bool flag[100001]; //0:queue, 1:stack
+
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> flag[i];
+	}
+	for (int i = 0; i < n; i++) {
+		int x;
+		cin >> x;
+		if (flag[i] == 0) //queue일때만 deque에 원소 삽입
+			dq.push_back(x);
+	}
+	cin >> m;
+	for (int i = 0; i < m; i++) {
+		int y;
+		cin >> y;
+		dq.push_front(y);
+		cout << dq.back() << " ";
+		dq.pop_back();
+
+	}
+}
+
+void baekjoon2346()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
@@ -56,23 +121,6 @@ void baekjoon()
 
 	}
 }
-
-
-int main() 
-{
-    baekjoon();
-    return 0;
-}
-
-#pragma region 주의점
-// 수백개 On2			2중for문
-// 수만개 ONlogN
-// 수백만 이상 OlogN		이분 탐색
-
-// endl 보다 \n을 사용하자
-
-
-#pragma endregion
 
 void baekjoon28279()
 {
@@ -167,7 +215,7 @@ void baekjoon28279()
 
 }
 
-void baekjoon28279()
+void baekjoon2827()
 {
 	int n, k;
 	cin >> n >> k;
