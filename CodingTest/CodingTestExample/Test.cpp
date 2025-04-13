@@ -15,19 +15,21 @@ using namespace std;
 
 long recursion(long n)
 {
-	if (n == 0)
-		return 1;
+	if (n <= 1)
+		return n;
 	else
-		return n * recursion(n - 1);
+		return recursion(n - 2) + recursion(n - 1);
 }
+
 
 void baekjoon()
 {
 	int n;
 	cin >> n;
 
-	cout  << recursion(n);
+	cout << recursion(n);
 }
+
 
 
 int main() 
@@ -45,6 +47,22 @@ int main()
 
 
 #pragma endregion
+
+void baekjoon27433()
+{
+	int n;
+	cin >> n;
+
+	cout << recursion(n);
+}
+
+long recursion1(long n)
+{
+	if (n == 0)
+		return 1;
+	else
+		return n * recursion(n - 1);
+}
 
 void baekjoon24511()
 {
