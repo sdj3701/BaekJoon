@@ -13,24 +13,32 @@
 using namespace std;
 
 
-long recursion(long n)
-{
-	if (n <= 1)
-		return n;
-	else
-		return recursion(n - 2) + recursion(n - 1);
+int recursion(const char* s, int l, int r) {
+	if (l >= r) return 1;
+	else if (s[l] != s[r]) return 0;
+	else return recursion(s, l + 1, r - 1);
 }
 
+int isPalindrome(const char* s) {
+	return recursion(s, 0, strlen(s) - 1);
+}
 
 void baekjoon()
 {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
 	int n;
 	cin >> n;
-
-	cout << recursion(n);
+	for (int i = 0; i < n; i++)
+	{
+		string str;
+		cin >> str;
+		int count;
+		cout << isPalindrome(str) << " " << count << "\n";
+	}
 }
-
-
 
 int main() 
 {
@@ -48,12 +56,21 @@ int main()
 
 #pragma endregion
 
-void baekjoon27433()
+
+long recursion2(long n)
+{
+	if (n <= 1)
+		return n;
+	else
+		return recursion2(n - 2) + recursion2(n - 1);
+}
+
+void baekjoon10870()
 {
 	int n;
 	cin >> n;
 
-	cout << recursion(n);
+	cout << recursion2(n);
 }
 
 long recursion1(long n)
@@ -61,7 +78,15 @@ long recursion1(long n)
 	if (n == 0)
 		return 1;
 	else
-		return n * recursion(n - 1);
+		return n * recursion1(n - 1);
+}
+
+void baekjoon27433()
+{
+	int n;
+	cin >> n;
+
+	cout << recursion1(n);
 }
 
 void baekjoon24511()

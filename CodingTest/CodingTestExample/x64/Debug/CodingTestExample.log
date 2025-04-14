@@ -1,17 +1,18 @@
 ﻿  Test.cpp
-D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(104,9): warning C4101: 'top': unreferenced local variable
-D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(584,28): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
-D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(584,28): warning C4267:         with
-D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(584,28): warning C4267:         [
-D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(584,28): warning C4267:             _Ty=int
-D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(584,28): warning C4267:         ]
-D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(799,10): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(879,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(1517,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(1804,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(1882,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(1950,9): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(1952,14): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(22,38): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(125,9): warning C4101: 'top': unreferenced local variable
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(605,28): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(605,28): warning C4267:         with
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(605,28): warning C4267:         [
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(605,28): warning C4267:             _Ty=int
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(605,28): warning C4267:         ]
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(820,10): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(900,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(1538,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(1825,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(1903,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(1971,9): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\BaekJoon\CodingTest\CodingTestExample\Test.cpp(1973,14): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
   CodingTestExample.vcxproj -> D:\BaekJoon\CodingTest\x64\Debug\CodingTestExample.exe
   'pwsh.exe'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
   배치 파일이 아닙니다.
