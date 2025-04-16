@@ -12,33 +12,75 @@
 
 using namespace std;
 
-int recursion(const char* s, int l, int r, int& count) {
-	count++;
-	if (l >= r) return 1;
-	else if (s[l] != s[r]) return 0;
-	else return recursion(s, l + 1, r - 1, count);
+int cnt = 0;
+int tmp[500001] = { 0, };
+bool flag = false;
+
+void merge(int A[], int p, int q, int r, int K) {
+	int i = p;
+	int j = q + 1;
+	int t = 1;
+	while (i <= q && j <= r)
+	{
+		if (A[i] <= A[j])
+		{
+			tmp[t++] = A[i++];
+		}
+		else
+		{
+			tmp[t++] = A[j++];
+		}
+	}
+	while (i <= q)
+	{
+		tmp[t++] = A[i++];
+	}
+	while (j <= r)
+	{
+		tmp[t++] = A[j++];
+	}
+	i = p;
+	t = 1;
+	while (i <= r)
+	{
+		A[i++] = tmp[t++];
+		cnt++;
+		if (cnt == K)
+		{
+			cout << A[i - 1];
+			flag = true;
+			return;
+		}
+	}
 }
 
-int isPalindrome(const char* s, int& count) {
-	return recursion(s, 0, strlen(s) - 1, count);
+void merge_sort(int* A, int start, int end, int K){
+    int p = start, r = end, q;
+    if(p<r){
+        q = (p+r)/2;
+        merge_sort(A,p,q,K);
+        merge_sort(A,q+1,r,K);
+        merge(A,p,q,r,K);
+    }
 }
 
-void baekjoon()
+void baekjoon24060()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
+	int n, m;
+	cin >> n >> m;
+	int* arr = new int[n];
 
-	int n;
-	cin >> n;
 	for (int i = 0; i < n; i++)
 	{
-		string str;
-		cin >> str;
-
-		int count = 0;
-		cout << isPalindrome(str.c_str(), count) << " " << count << "\n";
+		cin >> arr[i];
 	}
+	merge_sort(arr, 0, n - 1, m);
+	if (!flag)
+		cout << -1;
+}
+void baekjoon()
+{
+
 }
 
 int main() 
@@ -57,6 +99,35 @@ int main()
 
 #pragma endregion
 
+
+int recursion3(const char* s, int l, int r, int& count) {
+	count++;
+	if (l >= r) return 1;
+	else if (s[l] != s[r]) return 0;
+	else return recursion3(s, l + 1, r - 1, count);
+}
+
+int isPalindrome(const char* s, int& count) {
+	return recursion3(s, 0, strlen(s) - 1, count);
+}
+
+void baekjoon25501()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	int n;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		string str;
+		cin >> str;
+
+		int count = 0;
+		cout << isPalindrome(str.c_str(), count) << " " << count << "\n";
+	}
+}
 
 long recursion2(long n)
 {
