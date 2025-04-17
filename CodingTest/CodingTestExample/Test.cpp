@@ -12,75 +12,33 @@
 
 using namespace std;
 
-int cnt = 0;
-int tmp[500001] = { 0, };
-bool flag = false;
-
-void merge(int A[], int p, int q, int r, int K) {
-	int i = p;
-	int j = q + 1;
-	int t = 1;
-	while (i <= q && j <= r)
-	{
-		if (A[i] <= A[j])
-		{
-			tmp[t++] = A[i++];
-		}
-		else
-		{
-			tmp[t++] = A[j++];
-		}
-	}
-	while (i <= q)
-	{
-		tmp[t++] = A[i++];
-	}
-	while (j <= r)
-	{
-		tmp[t++] = A[j++];
-	}
-	i = p;
-	t = 1;
-	while (i <= r)
-	{
-		A[i++] = tmp[t++];
-		cnt++;
-		if (cnt == K)
-		{
-			cout << A[i - 1];
-			flag = true;
-			return;
-		}
-	}
-}
-
-void merge_sort(int* A, int start, int end, int K){
-    int p = start, r = end, q;
-    if(p<r){
-        q = (p+r)/2;
-        merge_sort(A,p,q,K);
-        merge_sort(A,q+1,r,K);
-        merge(A,p,q,r,K);
-    }
-}
-
-void baekjoon24060()
+void recursion(int i, int j, int n)
 {
-	int n, m;
-	cin >> n >> m;
-	int* arr = new int[n];
-
-	for (int i = 0; i < n; i++)
+	if ((i / n) % 3 == 1 && (j / n) % 3 == 1)
 	{
-		cin >> arr[i];
+		cout << ' ';
 	}
-	merge_sort(arr, 0, n - 1, m);
-	if (!flag)
-		cout << -1;
+	else
+	{
+		if (n / 3 == 0)
+			cout << '*';
+		else
+			recursion(i, j, n / 3);
+	}
 }
+
 void baekjoon()
 {
-
+	int n;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			recursion(i, j, n);
+		}
+		cout << "\n";
+	}
 }
 
 int main() 
@@ -99,6 +57,29 @@ int main()
 
 #pragma endregion
 
+void recursion4(int n)
+{
+	if (n == 0)
+	{
+		cout << "-";
+		return;
+	}
+	recursion4(n - 1);
+	for (int i = 0; i < pow(3, n - 1); i++)
+	{
+		cout << " ";
+	}
+	recursion4(n - 1);
+}
+
+void baekjoon4779()
+{
+	int n;
+	while (cin >> n) {
+		recursion4(n);
+		cout << "\n";
+	}
+}
 
 int recursion3(const char* s, int l, int r, int& count) {
 	count++;
