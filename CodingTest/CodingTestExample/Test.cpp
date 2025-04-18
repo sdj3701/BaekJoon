@@ -12,33 +12,26 @@
 
 using namespace std;
 
-void recursion(int i, int j, int n)
+void recursion(int n, int from, int by, int to)
 {
-	if ((i / n) % 3 == 1 && (j / n) % 3 == 1)
-	{
-		cout << ' ';
-	}
+	if (n == 1)
+		cout << from << " " << to << "\n";
 	else
 	{
-		if (n / 3 == 0)
-			cout << '*';
-		else
-			recursion(i, j, n / 3);
+		recursion(n - 1, from, to, by);
+		cout << from << " " << to << "\n";
+		recursion(n - 1, by, from, to);
 	}
+
 }
 
 void baekjoon()
 {
 	int n;
 	cin >> n;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			recursion(i, j, n);
-		}
-		cout << "\n";
-	}
+
+	cout << pow(2, n) - 1 << "\n";
+	recursion(n, 1, 2, 3);
 }
 
 int main() 
@@ -56,6 +49,35 @@ int main()
 
 
 #pragma endregion
+
+void recursion5(int i, int j, int n)
+{
+	if ((i / n) % 3 == 1 && (j / n) % 3 == 1)
+	{
+		cout << ' ';
+	}
+	else
+	{
+		if (n / 3 == 0)
+			cout << '*';
+		else
+			recursion5(i, j, n / 3);
+	}
+}
+
+void baekjoon2447()
+{
+	int n;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			recursion5(i, j, n);
+		}
+		cout << "\n";
+	}
+}
 
 void recursion4(int n)
 {
