@@ -12,26 +12,40 @@
 
 using namespace std;
 
-void recursion(int n, int from, int by, int to)
+void func(int cnt, int n, int m, int* arr, bool* vis)
 {
-	if (n == 1)
-		cout << from << " " << to << "\n";
-	else
+	if (cnt == m)
 	{
-		recursion(n - 1, from, to, by);
-		cout << from << " " << to << "\n";
-		recursion(n - 1, by, from, to);
+		for (int i = 0; i < m; i++)
+			cout << arr[i] << " ";
+		cout << "\n";
+		return;
 	}
 
+	for (int i = 1; i <= n; i++)
+	{
+		if (!vis[i])
+		{
+			vis[i] = true;
+			arr[cnt] = i;
+			func(cnt + 1, n, m, arr, vis);
+			vis[i] = false;
+		}
+	}
 }
 
 void baekjoon()
 {
-	int n;
-	cin >> n;
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
 
-	cout << pow(2, n) - 1 << "\n";
-	recursion(n, 1, 2, 3);
+	int n, m;
+	cin >> n >> m;
+
+	int arr[9] = { 0 };
+	bool visited[9] = { false };
+
+	func(0, n, m, arr, visited);
 }
 
 int main() 
@@ -49,6 +63,28 @@ int main()
 
 
 #pragma endregion
+
+void recursion6(int n, int from, int by, int to)
+{
+	if (n == 1)
+		cout << from << " " << to << "\n";
+	else
+	{
+		recursion6(n - 1, from, to, by);
+		cout << from << " " << to << "\n";
+		recursion6(n - 1, by, from, to);
+	}
+
+}
+
+void baekjoon11729()
+{
+	int n;
+	cin >> n;
+
+	cout << pow(2, n) - 1 << "\n";
+	recursion6(n, 1, 2, 3);
+}
 
 void recursion5(int i, int j, int n)
 {
