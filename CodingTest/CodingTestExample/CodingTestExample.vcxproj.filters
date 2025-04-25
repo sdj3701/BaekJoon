@@ -13,10 +13,19 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Back">
+      <UniqueIdentifier>{2104bc45-e316-4784-9584-7711c1c4e581}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="baekjoon15650.cpp">
+      <Filter>Source Files\Back</Filter>
+    </ClCompile>
+    <ClCompile Include="15651.cpp">
+      <Filter>Source Files\Back</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
