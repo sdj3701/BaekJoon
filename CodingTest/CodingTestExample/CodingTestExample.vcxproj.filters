@@ -27,7 +27,10 @@
     <ClCompile Include="15651.cpp">
       <Filter>Source Files\Back</Filter>
     </ClCompile>
-    <ClCompile Include="15652.cpp">
+    <ClCompile Include="F15652.cpp">
+      <Filter>Source Files\Back</Filter>
+    </ClCompile>
+    <ClCompile Include="F9663.cpp">
       <Filter>Source Files\Back</Filter>
     </ClCompile>
   </ItemGroup>
