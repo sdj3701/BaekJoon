@@ -1,50 +1,53 @@
 #include <string>
 #include <vector>
-#include <map>
 #include <algorithm>
-
+#include <climits>
 using namespace std;
-map<string, int> m; // "diamind" = 0, "iron" = 1, "stone" = 2
-int fatigue[3][3] = { {1,1,1}, {5,1,1}, {25,5,1} }; // [곡괭이로][해당광물캘때] = 드는 피로도
 
+// 피로도 테이블
+int fatigueTable[3][3] = {
+    {1, 1, 1},    // 다이아 곡괭이
+    {5, 1, 1},    // 철 곡괭이
+    {25, 5, 1}    // 돌 곡괭이
+};
 
-void DFS(vector<int>& picks, vector<string>& minerals, int& answer, int sum, int location) {
+int getMineralIndex(const string& mineral) {
+    if (mineral == "diamond") return 0;
+    if (mineral == "iron") return 1;
+    return 2; // stone
+}
 
-    // 광물을 다 캤거나 곡괭이들을 다 썼을때 피로도를 갱신해주자.
-    if (location == minerals.size() || (picks[0] == 0 && picks[1] == 0 && picks[2] == 0)) {
-        answer = min(answer, sum);
+void DFS(vector<int>& picks, vector<string>& minerals, int& answer, int currentFatigue, int mineralIndex) {
+    // 모든 광물을 캤거나 곡괭이가 없으면 종료
+    if (mineralIndex >= minerals.size() || (picks[0] == 0 && picks[1] == 0 && picks[2] == 0)) {
+        answer = min(answer, currentFatigue);
         return;
     }
 
-
-    // 0~2 곡괭이 방문
+    // 각 곡괭이 타입 시도
     for (int i = 0; i < 3; i++) {
-
-        // i곡괭이가 있다면
-        if (picks[i] != 0) {
+        if (picks[i] > 0) {
+            // 곡괭이 사용
             picks[i]--;
 
-            int tmpIdx = location; // 곡괭이를 들면 5개를 연속으로 캐야함. 캐야할 광물의 임시 인덱스.
-            int tmpSum = sum; // 광물을 캐며 누적된 임시 피로도
-            for (; tmpIdx < location + 5 && tmpIdx < minerals.size(); tmpIdx++) { // 5개를 캐거나 끝까지 캘때까지 
-                tmpSum += fatigue[i][m[minerals[tmpIdx]]]; // m[minerals[tmpIdx]] : tmpIdx 광물의 번호
+            // 이 곡괭이로 최대 5개 광물 캐기
+            int newFatigue = currentFatigue;
+            for (int j = 0; j < 5 && mineralIndex + j < minerals.size(); j++) {
+                int mineralType = getMineralIndex(minerals[mineralIndex + j]);
+                newFatigue += fatigueTable[i][mineralType];
             }
 
-            DFS(picks, minerals, answer, tmpSum, tmpIdx);
+            // 다음 광물 그룹으로 이동 (5개 단위)
+            DFS(picks, minerals, answer, newFatigue, mineralIndex + 5);
 
+            // 백트래킹: 곡괭이 반환
             picks[i]++;
         }
     }
-
 }
 
 int solution(vector<int> picks, vector<string> minerals) {
-    int answer = (25 * 50) + 1; // 최고 피로도*최대광물개수
-
-    // "diamind" = 0, "iron" = 1, "stone" = 2
-    m.insert({ "diamond", 0 });
-    m.insert({ "iron", 1 });
-    m.insert({ "stone", 2 });
+    int answer = INT_MAX;
 
     DFS(picks, minerals, answer, 0, 0);
 
