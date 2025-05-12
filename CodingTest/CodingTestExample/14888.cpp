@@ -21,7 +21,6 @@ void func(int plus, int minus, int multiple, int divide, int cnt, int sum)
 	if (minus > 0)		func(plus		, minus - 1	, multiple		, divide		, cnt + 1, sum - arr[cnt + 1]);
 	if (multiple > 0)	func(plus		, minus		, multiple - 1	, divide		, cnt + 1, sum * arr[cnt + 1]);
 	if (divide > 0)		func(plus		, minus		, multiple		, divide - 1	, cnt + 1, sum / arr[cnt + 1]);
-
 }
 
 int main()
