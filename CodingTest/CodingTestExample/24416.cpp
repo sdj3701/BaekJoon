@@ -25,6 +25,7 @@ int main()
 	fib(n);
 
 	// 동적 계획법
+	// 바텀 업 방식
 	f[1] = f[2] = 1;
 	for (int i = 3; i <= n; i++)
 	{
@@ -36,3 +37,18 @@ int main()
 
 	return 0;
 }
+
+// 탑 다운 방식
+/*
+int memo[41] = {0};
+int fib_memo(int n) {
+	if (n == 1 || n == 2) {
+		return 1;
+	}
+	if (memo[n] != 0) {  // 이미 계산된 값이 있으면 재사용
+		return memo[n];
+	}
+	// 계산 결과를 저장(메모이제이션)
+	return memo[n] = fib_memo(n-1) + fib_memo(n-2);
+}
+*/
