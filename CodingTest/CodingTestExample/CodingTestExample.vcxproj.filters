@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Back">
       <UniqueIdentifier>{2104bc45-e316-4784-9584-7711c1c4e581}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\DP">
+      <UniqueIdentifier>{618358fe-b18d-478e-90f8-6e8714cc674c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
@@ -44,6 +47,12 @@
     </ClCompile>
     <ClCompile Include="24416.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="9184.cpp">
+      <Filter>Source Files\DP</Filter>
+    </ClCompile>
+    <ClCompile Include="1904.cpp">
+      <Filter>Source Files\DP</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
