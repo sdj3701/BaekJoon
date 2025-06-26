@@ -19,6 +19,9 @@
     <Filter Include="Source Files\DP">
       <UniqueIdentifier>{618358fe-b18d-478e-90f8-6e8714cc674c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Add">
+      <UniqueIdentifier>{ed27517a-e4ca-4ed1-8015-f3f671518050}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
@@ -92,6 +95,15 @@
     </ClCompile>
     <ClCompile Include="12865.cpp">
       <Filter>Source Files\DP</Filter>
+    </ClCompile>
+    <ClCompile Include="11659.cpp">
+      <Filter>Source Files\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="2559.cpp">
+      <Filter>Source Files\Add</Filter>
+    </ClCompile>
+    <ClCompile Include="16139.cpp">
+      <Filter>Source Files\Add</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
